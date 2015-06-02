@@ -4,10 +4,10 @@
 	<script src="/js/jquery-1.11.2.min.js"></script>
 	<link rel="stylesheet" href="/css/materialize.css">
 	<!-- CodeMirror Dependencies -->
-	<script src="codemirror/lib/codemirror.js"></script>
-	<link rel="stylesheet" href="codemirror/lib/codemirror.css">
-	<link rel="stylesheet" href="codemirror/theme/monokai.css"></link>
-	<script src="codemirror/mode/clike/clike.js"></script>
+	<script src="/tools/codemirror/lib/codemirror.js"></script>
+	<link rel="stylesheet" href="/tools/codemirror/lib/codemirror.css">
+	<link rel="stylesheet" href="/tools/codemirror/theme/monokai.css"></link>
+	<script src="/tools/codemirror/mode/clike/clike.js"></script>
 	<style>
 		.control-wrapper {
 			position: relative;
@@ -21,7 +21,7 @@
 <body>
 	<div class="container">
 		<header>
-			<?php include 'sidebar.php'; ?>
+			<?php include $_SERVER['DOCUMENT_ROOT'] . '/tools/layout/sidebar.php'; ?>
 		</header>
 		<form id="myForm" method="post">
 			<div class="row">

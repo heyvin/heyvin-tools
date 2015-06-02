@@ -5,11 +5,11 @@
 	<link rel="stylesheet" href="/css/materialize.css">
 	<link rel="stylesheet" href="/css/animation.css">
 	<!-- CodeMirror Dependencies -->
-	<script src="codemirror/lib/codemirror.js"></script>
-	<link rel="stylesheet" href="codemirror/lib/codemirror.css">
-	<link rel="stylesheet" href="codemirror/theme/monokai.css"></link>
-	<script src="codemirror/mode/vb/vb.js"></script>
-	<script src="codemirror/mode/clike/clike.js"></script>
+	<script src="/tools/codemirror/lib/codemirror.js"></script>
+	<link rel="stylesheet" href="/tools/codemirror/lib/codemirror.css">
+	<link rel="stylesheet" href="/tools/codemirror/theme/monokai.css"></link>
+	<script src="/tools/codemirror/mode/vb/vb.js"></script>
+	<script src="/tools/codemirror/mode/clike/clike.js"></script>
 	<style>
 		.control-wrapper {
 			position: absolute;
@@ -29,7 +29,7 @@
 <body>
 	<div class="container">
 		<header>
-			<?php include 'sidebar.php'; ?>
+			<?php include $_SERVER['DOCUMENT_ROOT'] . '/tools/layout/sidebar.php'; ?>
 		</header>
 		<form id="myForm" method="post">
 			<div class="row">
@@ -98,7 +98,7 @@
 			    	</div>
 			    	<div align="center">
 			    		<a id="btnOkSave" class="modal-action waves-effect waves-teal btn-flat">OK</a>
-			    		<a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Cancel</a>
+			    		<a class="modal-action modal-close waves-effect waves-red btn-flat">Cancel</a>
 			    	</div>
             	</div>
             </div>
@@ -125,7 +125,7 @@
 					</div>
 			    	<div align="center">
 			    		<a id="btnOkLoad" class="modal-action waves-effect waves-teal btn-flat">OK</a>
-			    		<a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Cancel</a>
+			    		<a class="modal-action modal-close waves-effect waves-red btn-flat">Cancel</a>
 			    	</div>
             	</div>
             </div>
@@ -198,7 +198,7 @@
 					    	$("#file-list-save").removeClass("hidden");
 					    	var filesArray = $.parseJSON(response).files;
 					    	for(var i = 0; i < filesArray.length; i++) {
-					    		$("#file-list-save").append("<a href='#!' id='file-save-" 
+					    		$("#file-list-save").append("<a id='file-save-" 
 					    			+ i.toString() + "' class='collection-item' onclick='btnFileNameSaveClick(" 
 					    			+ i.toString() + ")'>" 
 					    			+ filesArray[i].replace(".json", "") + "</a>");
@@ -280,7 +280,7 @@
 					    	$("#file-list-load").removeClass("hidden");
 					    	var filesArray = $.parseJSON(response).files;
 					    	for(var i = 0; i < filesArray.length; i++) {
-					    		$("#file-list-load").append("<a href='#!' id='file-load-" 
+					    		$("#file-list-load").append("<a id='file-load-" 
 					    			+ i.toString() + "' class='collection-item' onclick='btnFileNameLoadClick(" 
 					    			+ i.toString() + ")'>" 
 					    			+ filesArray[i].replace(".json", "") + "</a>");
