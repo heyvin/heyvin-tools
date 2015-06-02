@@ -1,0 +1,55 @@
+{
+    "ace": {
+        "@guessTabSize": "true",
+        "@newLineMode": "unix",
+        "@tabSize": "4",
+        "@useSoftTabs": "true"
+    },
+    "build": {
+        "@builder": "auto",
+        "@path": "/.c9/builders",
+        "@saveall": true
+    },
+    "find.nak": {
+        "@searchLimit": 100
+    },
+    "general": {
+        "@stripws": false
+    },
+    "language": {
+        "@eslintrc": "true",
+        "@instanceHighlight": "true",
+        "@semi": "true",
+        "@undeclaredVars": "true",
+        "@unusedFunctionArgs": "false",
+        "@warnLevel": "info"
+    },
+    "run": {
+        "@path": "/.c9/runners",
+        "@runner": "Apache httpd (PHP, HTML)",
+        "configs": {
+            "@inited": "true",
+            "json()": {
+                "PHP": {
+                    "command": "",
+                    "debug": true,
+                    "default": true,
+                    "env": {},
+                    "name": "PHP",
+                    "runner": "Apache httpd (PHP, HTML)"
+                },
+                "RoR": {
+                    "command": "",
+                    "debug": true,
+                    "name": "RoR",
+                    "runner": "Ruby 2.1"
+                }
+            }
+        }
+    },
+    "share": {
+        "@app": false,
+        "@preview": false,
+        "@useOwnerSettings": false
+    }
+}
