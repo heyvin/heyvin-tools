@@ -368,6 +368,7 @@
 				
 				cmOri.on("change", function(){
 					cmPre.setValue(cmOri.getValue());
+					refreshReplace();
 				});
 
 			});
