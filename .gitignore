@@ -1,4 +1,4 @@
 .c9revisions/
-.vendor/
+vendor/
 .gitignore
 .c9/
