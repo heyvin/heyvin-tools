@@ -1,10 +1,18 @@
 <?php
 
-require('vendor/autoload.php');
+require($_SERVER['DOCUMENT_ROOT']. '/vendor/autoload.php');
 
-use Aws\S3\S3Client;
-$s3 = Aws\S3\S3Client::factory();
-$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
+// AKIAIRRHXXT474LBNQ2Q
+// xinimOEjZFhSCkoE8bdNyH61WnoymZD5ILfdqmkg
+$key = getenv('AWS_ACCESS_KEY_ID');
+$secret = getenv('AWS_SECRET_ACCESS_KEY');
+$s3 = Aws\S3\S3Client::factory(array(
+                                    'credentials' => array(
+                                        'key'    => $key,
+                                        'secret' => $secret,
+                                        )
+                            ));
+$bucket = 'heyvin-us';
 
 $name = $_POST['name'];
 $json = $_POST['json'];
@@ -12,21 +20,18 @@ $json = $_POST['json'];
 $return = $_POST;
 
 if ($name != null && json_decode($json) != null) {
-    
-//    try {
-//        // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
-//        $upload = $s3->upload($bucket, $_FILES['userfile'][$name . '.json'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
-//   } catch(Exception $e) {
-//        $return["result"] = "ng";
-//    }
 
     // Upload an object to Amazon S3
-    $result = $s3->putObject(array(
-        'Bucket' => $bucket,
-        'Key'    => $name . '.json',
-        'Body'   => $json,
-        'ACL'    => 'public-read'
-    ));
+    try {
+        $result = $s3->putObject(array(
+            'Bucket' => $bucket,
+            'Key'    => $name . '.json',
+            'Body'   => $json,
+            'ACL'    => 'public-read'
+        ));
+    } catch (S3Exception $e) {
+        echo $e->getMessage() . "\n";
+    }
     
 //    $file = fopen($name . '.json','w+');
 //    fwrite($file, $json);
