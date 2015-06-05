@@ -90,8 +90,8 @@
 							</div>
 						</div>
 					</div>
-					<div id="file-list-save" class="collection hidden">
-					</div>
+					<ul id="file-list-save" class="collection hidden">
+					</ul>
 					<div class="input-field">
                         <input id="txtNewPreset" type="text" class="validate">
                         <label for="txtNewPreset">Or enter new preset name</label></label>
@@ -121,8 +121,8 @@
 							</div>
 						</div>
 					</div>
-					<div id="file-list-load" class="collection hidden">
-					</div>
+					<ul id="file-list-load" class="collection hidden">
+					</ul>
 			    	<div align="center">
 			    		<a id="btnOkLoad" class="modal-action waves-effect waves-teal btn-flat">OK</a>
 			    		<a class="modal-action modal-close waves-effect waves-red btn-flat">Cancel</a>
@@ -199,10 +199,13 @@
 					    	var filesArray = $.parseJSON(response).files;
 					    	filesArray.shift();
 					    	for(var i = 0; i < filesArray.length; i++) {
-					    		$("#file-list-save").append("<a id='file-save-" 
+					    		$("#file-list-save").append("<li id='file-save-" 
 					    			+ i.toString() + "' class='collection-item' onclick='btnFileNameSaveClick(" 
-					    			+ i.toString() + ")'>" 
-					    			+ filesArray[i].replace("tools-data/json/", "").replace(".json", "") + "</a>");
+					    			+ i.toString() + ")'><div>" 
+					    			+ filesArray[i].replace("tools-data/json/", "").replace(".json", "") 
+					    			+ "<a href='#' id='file-delete-" + i.toString() 
+					    			+ "' class='secondary-content' onclick='btnDeletePresetClick("
+					    			+ i.toString() + ")'><i class='mdi-action-delete small circle white'></i></a></div></li>");
 				    			countFiles = countFiles + 1;
 					    	}
 					    },
@@ -282,10 +285,10 @@
 					    	var filesArray = $.parseJSON(response).files;
 					    	filesArray.shift();
 					    	for(var i = 0; i < filesArray.length; i++) {
-					    		$("#file-list-load").append("<a id='file-load-" 
+					    		$("#file-list-load").append("<li id='file-load-" 
 					    			+ i.toString() + "' class='collection-item' onclick='btnFileNameLoadClick(" 
 					    			+ i.toString() + ")'>" 
-					    			+ filesArray[i].replace("tools-data/json/", "").replace(".json", "") + "</a>");
+					    			+ filesArray[i].replace("tools-data/json/", "").replace(".json", "") + "</li>");
 				    			countFiles = countFiles + 1;
 					    	}
 					    },
@@ -374,6 +377,31 @@
 				});
 
 			});
+			
+			function btnDeletePresetClick(strNum) {
+				// call AJAX to delete preset file
+	    		$.ajax({
+				    type : "POST",
+				    url : "data/deletepreset.php",
+				    dataType : 'json', 
+					data : {
+						name: $("#file-save-" + strNum).text()
+					},
+				    success : function(response) {
+				    	$("#file-save-" + strNum).remove();
+				    	Materialize.toast("Delete preset completed.", 3000);
+				    },
+				    error : function() {
+				    	Materialize.toast("Deletion failed, please try again.", 3000);
+				    },
+				    beforeSend : function() {
+				    	$("#files-preloader-load").removeClass("hidden");
+				    },
+				    complete : function() {
+				    	$("#files-preloader-load").addClass("hidden");
+				    }
+				});
+			}
 			
 			function btnRemoveClick(strNum) {
 			    $("#controlGroup" + strNum).remove();

@@ -1,1 +1,0 @@
-{"crits":[{"replace":"Public","with":"public"},{"replace":"End Function","with":"}"},{"replace":"If ","with":"if("},{"replace":"Else ","with":"} else {"},{"replace":" Then","with":") {"}]}
