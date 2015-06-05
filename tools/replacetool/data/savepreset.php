@@ -1,22 +1,16 @@
 <?php
 
 require($_SERVER['DOCUMENT_ROOT']. '/vendor/autoload.php');
-
-// AKIAIRRHXXT474LBNQ2Q
-// xinimOEjZFhSCkoE8bdNyH61WnoymZD5ILfdqmkg
-$key = getenv('AWS_ACCESS_KEY_ID');
-$secret = getenv('AWS_SECRET_ACCESS_KEY');
 $s3 = Aws\S3\S3Client::factory(array(
                                     'credentials' => array(
-                                        'key'    => $key,
-                                        'secret' => $secret,
+                                        'key'    => 'AKIAIRRHXXT474LBNQ2Q',
+                                        'secret' => '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',
                                         )
                             ));
 $bucket = 'heyvin-us';
 
 $name = $_POST['name'];
 $json = $_POST['json'];
-
 $return = $_POST;
 
 if ($name != null && json_decode($json) != null) {
@@ -25,7 +19,7 @@ if ($name != null && json_decode($json) != null) {
     try {
         $result = $s3->putObject(array(
             'Bucket' => $bucket,
-            'Key'    => $name . '.json',
+            'Key'    => 'tools-data/json/' . $name . '.json',
             'Body'   => $json,
             'ACL'    => 'public-read'
         ));
@@ -33,9 +27,6 @@ if ($name != null && json_decode($json) != null) {
         echo $e->getMessage() . "\n";
     }
     
-//    $file = fopen($name . '.json','w+');
-//    fwrite($file, $json);
-//    fclose($file);
     $return["path"] = $result['ObjectURL'];
     $return["result"] = "ok";
 } else {

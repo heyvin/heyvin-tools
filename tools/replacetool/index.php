@@ -197,11 +197,12 @@
 					    success : function(response) {
 					    	$("#file-list-save").removeClass("hidden");
 					    	var filesArray = $.parseJSON(response).files;
+					    	filesArray.shift();
 					    	for(var i = 0; i < filesArray.length; i++) {
 					    		$("#file-list-save").append("<a id='file-save-" 
 					    			+ i.toString() + "' class='collection-item' onclick='btnFileNameSaveClick(" 
 					    			+ i.toString() + ")'>" 
-					    			+ filesArray[i].replace(".json", "") + "</a>");
+					    			+ filesArray[i].replace("tools-data/json/", "").replace(".json", "") + "</a>");
 				    			countFiles = countFiles + 1;
 					    	}
 					    },
@@ -279,11 +280,12 @@
 					    success : function(response) {
 					    	$("#file-list-load").removeClass("hidden");
 					    	var filesArray = $.parseJSON(response).files;
+					    	filesArray.shift();
 					    	for(var i = 0; i < filesArray.length; i++) {
 					    		$("#file-list-load").append("<a id='file-load-" 
 					    			+ i.toString() + "' class='collection-item' onclick='btnFileNameLoadClick(" 
 					    			+ i.toString() + ")'>" 
-					    			+ filesArray[i].replace(".json", "") + "</a>");
+					    			+ filesArray[i].replace("tools-data/json/", "").replace(".json", "") + "</a>");
 				    			countFiles = countFiles + 1;
 					    	}
 					    },
