@@ -34,6 +34,10 @@
 		<form id="myForm" method="post">
 			<div class="row">
 				<div id="control" class="row control-wrapper col s3 offset-s6">
+					<div id="controlGroup0" align="left">
+						<input type="checkbox" id="chkVariables" />
+      					<label for="chkVariables">Replace VB-style Variables</label>
+					</div>
 				    <div id="controlGroup1">
     					<div class="input-field col s5">
     					    <input id="txtRep1" type="text" class="validate" onchange='refreshReplace()'>
@@ -375,6 +379,69 @@
 					cmPre.setValue(cmOri.getValue());
 					refreshReplace();
 				});
+				
+				$("#chkVariables").change(function() {
+					if($("#chkVariables").prop("checked")) {
+						var strPreText = cmPre.getValue();
+						var arrLines = strPreText.split('\n');
+						for(var i = 0; i < arrLines.length; i++) {
+							if(arrLines[i].indexOf("optionParam") != -1) {
+								var varText = arrLines[i].substring(arrLines[i].lastIndexOf('.') + 1, arrLines[i].lastIndexOf(')'));
+								varText = varText.trim();
+								if(varText.match(/^[a-zA-Z0-9]+$/g) != null) {
+									if(varText == varText.toUpperCase()) {
+										varText = varText.toLowerCase();
+									} else {
+										for(var x = 1; x < varText.length; x++) {
+											if(varText.charAt(x) == varText.charAt(x).toUpperCase()) {
+												varText = varText.slice(0, x) + "_" + varText.slice(x);
+												x++;
+											}
+										}
+										varText = varText.toLowerCase();
+									}
+									arrLines[i] = arrLines[i].substring(0, arrLines[i].lastIndexOf('.') + 1) + varText + arrLines[i].substring(arrLines[i].lastIndexOf(')'), arrLines[i].length);
+								}
+							} else {
+								var arrSegment = arrLines[i].split(" = ");
+								
+								// First segment
+								var varText = arrSegment[0].substring(arrSegment[0].lastIndexOf('.') + 1, arrSegment[0].length);
+								if(varText == varText.toUpperCase()) {
+									varText = varText.toLowerCase();
+								} else {
+									for(var x = 1; x < varText.length; x++) {
+										if(varText.charAt(x) == varText.charAt(x).toUpperCase()) {
+											varText = varText.slice(0, x) + "_" + varText.slice(x);
+											x++;
+										}
+									}
+									varText = varText.toLowerCase();
+								}
+								arrSegment[0] = arrSegment[0].substring(0, arrSegment[0].lastIndexOf('.') + 1) + varText;
+								
+								// Second segment
+								var varText = arrSegment[1].substring(arrSegment[1].lastIndexOf('.') + 1, arrSegment[1].indexOf(' '));
+								if(varText == varText.toUpperCase()) {
+									varText = varText.toLowerCase();
+								} else {
+									for(var x = 1; x < varText.length; x++) {
+										if(varText.charAt(x) == varText.charAt(x).toUpperCase()) {
+											varText = varText.slice(0, x) + "_" + varText.slice(x);
+											x++;
+										}
+									}
+									varText = varText.toLowerCase();
+								}
+								arrSegment[1] = arrSegment[1].substring(0, arrSegment[1].lastIndexOf('.') + 1) + varText + arrSegment[1].substring(arrSegment[1].indexOf(' '), arrSegment[1].length);
+								
+								arrLines[i] = arrSegment.join(" = ");
+							}
+						}
+						cmPre.setValue(arrLines.join('\n'));
+						$("#chkVariables").prop("disabled", true);
+					}
+				})
 
 			});
 			
@@ -431,7 +498,7 @@
 			}
 			
 			function refreshReplace() {
-			    
+				
 			    var text = cmOri.getValue();
 			    var count = 0;
 			    
@@ -449,6 +516,10 @@
 			            
 			        }
 			        
+			    }
+			    
+			    if($("#chkVariables").prop("disabled")) {
+			    	$("#chkVariables").trigger("change");
 			    }
 			    
 			    return count;
