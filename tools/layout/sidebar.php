@@ -12,6 +12,9 @@
         	<li id='replacetool' class='bold'>
         		<a href='/tools/replacetool' class='waves-effect waves-teal'>Replace Tool</a>
         	</li>
+        	<li id='comparetool' class='bold'>
+        		<a href='/tools/comparetool' class='waves-effect waves-teal'>Compare Tool</a>
+        	</li>
         </ul>
 
     ");
