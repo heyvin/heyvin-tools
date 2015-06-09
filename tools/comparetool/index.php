@@ -61,7 +61,7 @@
 				<p><b>Eg:</b> The method doQuery(int, int, String, String, String, String)
 				</p>
 				<p><b>B2: Mở file SQL Java ra tìm chỗ khai báo biến rồi dán vô đây.</b></p>
-				<p><b>Eg:</b> int idoden_no, int idomeisai_no, String nendo, String can_kbn, String juha_no1, String juha_no2)
+				<p><b>Eg:</b> int idoden_no, int idomeisai_no, String nendo, String can_kbn, String juha_no1, String juha_no2
 				</p>
 				<p><b>B3: Nhấn COMPARE để sướng.</b></p>
 			</div>
