@@ -58,7 +58,7 @@
 				<p>Lỡ có viết cái doQuery tới hơn trăm cái biến mà nó báo lỗi thì không biết đường nào mà lần ra biến không hợp kiểu. Vì lí do làm biếng nói chung nên tool này được tạo ra.</p>
 				<h4>Cách Sử Dụng</h4>
 				<p><b>B1: Copy thông báo lỗi từ method. Dán vô [Text From Error Message]</b></p>
-				<p><b>Eg:</b> The method doQuery(int, int, String, String, String, String)
+				<p><b>Eg:</b> The method doQuery(int, int, String, String, String, String) in the type S_PZC0050_I_003 is not applicable for the arguments (int, int, String, int, String, String)
 				</p>
 				<p><b>B2: Mở file SQL Java ra tìm chỗ khai báo biến. Dán vô [Arguments From SQL Java]</b></p>
 				<p><b>Eg:</b> int idoden_no, int idomeisai_no, String nendo, String can_kbn, String juha_no1, String juha_no2
