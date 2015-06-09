@@ -7,7 +7,7 @@
 	<!-- CodeMirror Dependencies -->
 	<script src="/tools/codemirror/lib/codemirror.js"></script>
 	<link rel="stylesheet" href="/tools/codemirror/lib/codemirror.css">
-	<link rel="stylesheet" href="/tools/codemirror/theme/monokai.css"></link>
+	<link rel="stylesheet" href="/tools/codemirror/theme/mbo.css"></link>
 	<script src="/tools/codemirror/mode/vb/vb.js"></script>
 	<script src="/tools/codemirror/mode/clike/clike.js"></script>
 	<style>
@@ -152,7 +152,7 @@
 				lineWrapping: false,
 				lineNumbers: true,
 				mode: "vb",
-				theme: "monokai"
+				theme: "mbo"
 			});
 			cmOri.setSize("100%", "43%");
 			
@@ -162,7 +162,7 @@
 				lineNumbers: true,
 				mode: "text/x-java",
 				readOnly: true,
-				theme: "monokai"
+				theme: "mbo"
 			});
 			cmPre.setSize("100%", "43%");
 		

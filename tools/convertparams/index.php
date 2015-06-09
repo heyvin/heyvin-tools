@@ -6,7 +6,7 @@
 	<!-- CodeMirror Dependencies -->
 	<script src="/tools/codemirror/lib/codemirror.js"></script>
 	<link rel="stylesheet" href="/tools/codemirror/lib/codemirror.css">
-	<link rel="stylesheet" href="/tools/codemirror/theme/monokai.css"></link>
+	<link rel="stylesheet" href="/tools/codemirror/theme/mbo.css"></link>
 	<script src="/tools/codemirror/mode/vb/vb.js"></script>
 	<script src="/tools/codemirror/mode/clike/clike.js"></script>
 	<style>
@@ -60,7 +60,7 @@
 				lineWrapping: false,
 				lineNumbers: true,
 				mode: "vb",
-				theme: "monokai"
+				theme: "mbo"
 			});
 			cmVb.setSize("100%", "90%");
 			var cmJava = CodeMirror.fromTextArea(document.getElementById("txtJava"), {
@@ -69,7 +69,7 @@
 				lineNumbers: true,
 				mode: "text/x-java",
 				readOnly: true,
-				theme: "monokai"
+				theme: "mbo"
 			});
 			cmJava.setSize("100%", "90%");
 		

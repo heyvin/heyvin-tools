@@ -7,7 +7,7 @@
 	<!-- CodeMirror Dependencies -->
 	<script src="/tools/codemirror/lib/codemirror.js"></script>
 	<link rel="stylesheet" href="/tools/codemirror/lib/codemirror.css">
-	<link rel="stylesheet" href="/tools/codemirror/theme/monokai.css"></link>
+	<link rel="stylesheet" href="/tools/codemirror/theme/mbo.css"></link>
 	<script src="/tools/codemirror/mode/clike/clike.js"></script>
 	<style>
 		.control-wrapper {
@@ -77,7 +77,7 @@
 				lineWrapping: true,
 				lineNumbers: true,
 				mode: "java",
-				theme: "monokai"
+				theme: "mbo"
 			});
 			cmError.setSize("100%", "43%");
 			
@@ -86,7 +86,7 @@
 				lineWrapping: true,
 				lineNumbers: true,
 				mode: "java",
-				theme: "monokai"
+				theme: "mbo"
 			});
 			cmSQL.setSize("100%", "43%");
 			
@@ -96,7 +96,7 @@
 				lineNumbers: true,
 				mode: "java",
 				readOnly: true,
-				theme: "monokai"
+				theme: "mbo"
 			});
 			cmConflict.setSize("100%", "90%");
 		
