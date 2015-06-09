@@ -122,19 +122,27 @@
 						strSQL = strSQL.replace(/\n/g, "");
 						var arrSQL = strSQL.split(',');
 						
-						
-						for(var i = 0; i < arrError.length; i++) {
-							arrSQL[i] = arrSQL[i].trim();
-							if(arrError[i] != arrSQL[i].substring(0, arrSQL[i].indexOf(' '))) {
-								if((arrError[i] == "float" && arrSQL[i].substring(0, arrSQL[i].indexOf(' ')) == "double")
-								|| (arrError[i] == "int" && arrSQL[i].substring(0, arrSQL[i].indexOf(' ')) == "double")) {
-								} else {
-									strConflict = strConflict + arrSQL[i] + "\n";
+						if(arrError.length != arrSQL.length) {
+							
+							cmConflict.setValue("");
+							Materialize.toast("2 input textboxs don't have the same number of variables.", 3000);
+							
+						} else {
+							
+							for(var i = 0; i < arrError.length; i++) {
+								arrSQL[i] = arrSQL[i].trim();
+								if(arrError[i] != arrSQL[i].substring(0, arrSQL[i].indexOf(' '))) {
+									if((arrError[i] == "float" && arrSQL[i].substring(0, arrSQL[i].indexOf(' ')) == "double")
+									|| (arrError[i] == "int" && arrSQL[i].substring(0, arrSQL[i].indexOf(' ')) == "double")) {
+									} else {
+										strConflict = strConflict + arrSQL[i] + "\n";
+									}
 								}
 							}
+							
+							cmConflict.setValue(strConflict);
+							
 						}
-						
-						cmConflict.setValue(strConflict);
 					
 					}
 					
