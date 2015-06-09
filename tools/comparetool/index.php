@@ -57,10 +57,10 @@
 				<h4>Đây Là Cái Nồi Gì</h4>
 				<p>Lỡ có viết cái doQuery tới hơn trăm cái biến mà nó báo lỗi thì không biết đường nào mà lần ra biến không hợp kiểu. Vì lí do làm biếng nói chung nên tool này được tạo ra.</p>
 				<h4>Cách Sử Dụng</h4>
-				<p><b>B1: Lấy thông báo lỗi từ method.</b></p>
+				<p><b>B1: Copy thông báo lỗi từ method. Dán vô [Text From Error Message]</b></p>
 				<p><b>Eg:</b> The method doQuery(int, int, String, String, String, String)
 				</p>
-				<p><b>B2: Mở file SQL Java ra tìm chỗ khai báo biến rồi dán vô đây.</b></p>
+				<p><b>B2: Mở file SQL Java ra tìm chỗ khai báo biến. Dán vô [Arguments From SQL Java]</b></p>
 				<p><b>Eg:</b> int idoden_no, int idomeisai_no, String nendo, String can_kbn, String juha_no1, String juha_no2
 				</p>
 				<p><b>B3: Nhấn COMPARE để sướng.</b></p>
