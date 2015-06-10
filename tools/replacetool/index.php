@@ -74,7 +74,7 @@
 						<div align="center"><h6>ORIGINAL</h6></div>
 						<textarea id="txtOri"></textarea>
 					</div>
-					<div class="col s12">
+					<div class="col s12" style="margin-top: 15px">
 						<div align="center"><h6>PREVIEW</h6></div>
 						<textarea id="txtPre"></textarea>
 					</div>
