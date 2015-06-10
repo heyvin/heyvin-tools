@@ -32,6 +32,7 @@
             "json()": {
                 "PHP": {
                     "command": "",
+                    "cwd": "/",
                     "debug": true,
                     "default": true,
                     "env": {},

@@ -34,15 +34,24 @@
 		<form id="myForm" method="post">
 			<div class="row">
 				<div id="control" class="row control-wrapper col s3 offset-s6">
+					<div class="card-panel">
+					<span style="font-size: 10pt">Side of Variables:</span>
+					<select id="selSide">
+						<option value="" disabled selected>Choose your option</option>
+						<option value="1">Left</option>
+						<option value="2">Right</option>
+						<option value="3">Both</option>
+					</select>
 					<div id="controlGroup0" align="left">
 						<div>
 							<input type="checkbox" id="chkVariables" />
       						<label for="chkVariables">Replace VB-style Variables</label>
 						</div>
-      					<div>
+      					<div style="margin-top: 10px">
 							<input type="checkbox" id="chkSemi" />
       						<label for="chkSemi">Add Semicolons to The Lines</label>
 						</div>
+					</div>
 					</div>
 				    <div id="controlGroup1">
     					<div class="input-field col s5">
@@ -169,6 +178,7 @@
 			$(document).ready(function(){
 				
 				setActive("#replacetool");
+				$("#selSide").material_select();
 				
 				$("#btnAdd").click(function() {
 				    
@@ -419,34 +429,38 @@
 									if(arrSegment[0] != undefined && arrSegment[1] != undefined) {
 										
 										// First segment
-										var varText = arrSegment[0].substring(arrSegment[0].lastIndexOf('.') + 1, arrSegment[0].length);
-										if(varText == varText.toUpperCase()) {
-											varText = varText.toLowerCase();
-										} else {
-											for(var x = 1; x < varText.length; x++) {
-												if(varText.charAt(x).match(/^[a-zA-Z0-9]+$/g) != null && varText.charAt(x) == varText.charAt(x).toUpperCase()) {
-													varText = varText.slice(0, x) + "_" + varText.slice(x);
-													x++;
+										if($("#selSide").val() == "1" || $("#selSide").val() == "3") {
+											var varText = arrSegment[0].substring(arrSegment[0].lastIndexOf('.') + 1, arrSegment[0].length);
+											if(varText == varText.toUpperCase()) {
+												varText = varText.toLowerCase();
+											} else {
+												for(var x = 1; x < varText.length; x++) {
+													if(varText.charAt(x).match(/^[a-zA-Z0-9]+$/g) != null && varText.charAt(x) == varText.charAt(x).toUpperCase()) {
+														varText = varText.slice(0, x) + "_" + varText.slice(x);
+														x++;
+													}
 												}
+												varText = varText.toLowerCase();
 											}
-											varText = varText.toLowerCase();
+											arrSegment[0] = arrSegment[0].substring(0, arrSegment[0].lastIndexOf('.') + 1) + varText;
 										}
-										arrSegment[0] = arrSegment[0].substring(0, arrSegment[0].lastIndexOf('.') + 1) + varText;
 										
 										// Second segment
-										var varText = arrSegment[1].substring(arrSegment[1].lastIndexOf('.') + 1, arrSegment[1].length);
-										if(varText == varText.toUpperCase()) {
-											varText = varText.toLowerCase();
-										} else {
-											for(var x = 1; x < varText.length; x++) {
-												if(varText.charAt(x).match(/^[a-zA-Z0-9]+$/g) != null && varText.charAt(x) == varText.charAt(x).toUpperCase()) {
-													varText = varText.slice(0, x) + "_" + varText.slice(x);
-													x++;
+										if($("#selSide").val() == "2" || $("#selSide").val() == "3") {
+											var varText = arrSegment[1].substring(arrSegment[1].lastIndexOf('.') + 1, arrSegment[1].length);
+											if(varText == varText.toUpperCase()) {
+												varText = varText.toLowerCase();
+											} else {
+												for(var x = 1; x < varText.length; x++) {
+													if(varText.charAt(x).match(/^[a-zA-Z0-9]+$/g) != null && varText.charAt(x) == varText.charAt(x).toUpperCase()) {
+														varText = varText.slice(0, x) + "_" + varText.slice(x);
+														x++;
+													}
 												}
+												varText = varText.toLowerCase();
 											}
-											varText = varText.toLowerCase();
+											arrSegment[1] = arrSegment[1].substring(0, arrSegment[1].lastIndexOf('.') + 1) + varText;
 										}
-										arrSegment[1] = arrSegment[1].substring(0, arrSegment[1].lastIndexOf('.') + 1) + varText;
 										
 										arrLines[i] = arrSegment.join(" = ");
 									
