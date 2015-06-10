@@ -87,7 +87,7 @@
                 <ul>
                 	<li><a id="btnSave" class="btn-floating waves-effect waves-light green tooltipped" data-position="left" data-delay="50" data-tooltip="Save Preset"><i class="large mdi-content-save"></i></a></li>
                 	<li><a id="btnLoad" class="btn-floating waves-effect waves-light orange lighten-1 tooltipped" data-position="left" data-delay="50" data-tooltip="Load Preset"><i class="large mdi-content-inbox"></i></a></li>
-					<li><a id="btnClear" class="btn-floating waves-effect waves-light blue tooltipped" data-position="left" data-delay="50" data-tooltip="Clear"><i class="large mdi-content-clear"></i></a></li>
+					<li><a id="btnClear" class="btn-floating waves-effect waves-light blue tooltipped" data-position="left" data-delay="50" data-tooltip="Clear Input"><i class="large mdi-content-clear"></i></a></li>
 				</ul>
             </div>
             <div id="modal-save" class="modal">
@@ -198,7 +198,13 @@
 				});
 				
 				$("#btnClear").click(function() {
-					location.reload();
+					cmOri.setValue("");
+					cmPre.setValue("");
+					$("#selSide").val("");
+					$("#selSide").material_select();
+					$("#chkVariables").prop("disabled", false);
+					$("#chkVariables").prop("checked", false);
+					$("#chkSemi").prop("checked", false);
 				});
 				
 				$("#btnSave").click(function() {
