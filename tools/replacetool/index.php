@@ -35,23 +35,23 @@
 			<div class="row">
 				<div id="control" class="row control-wrapper col s3 offset-s6">
 					<div class="card-panel">
-					<span style="font-size: 10pt">Side of Variables:</span>
-					<select id="selSide">
-						<option value="" disabled selected>Choose your option</option>
-						<option value="1">Left</option>
-						<option value="2">Right</option>
-						<option value="3">Both</option>
-					</select>
-					<div id="controlGroup0" align="left">
-						<div>
-							<input type="checkbox" id="chkVariables" />
-      						<label for="chkVariables">Replace VB-style Variables</label>
+						<span style="font-size: 10gpt">Side of Variables:</span>
+						<select id="selSide">
+							<option value="" disabled selected>Choose your option</option>
+							<option value="1">Left</option>
+							<option value="2">Right</option>
+							<option value="3">Both</option>
+						</select>
+						<div id="controlGroup0" align="left">
+							<div>
+								<input type="checkbox" id="chkVariables" />
+	      						<label for="chkVariables">Replace VB-style Variables</label>
+							</div>
+	      					<div style="margin-top: 10px">
+								<input type="checkbox" id="chkSemi" />
+	      						<label for="chkSemi">Add Semicolons to The Lines</label>
+							</div>
 						</div>
-      					<div style="margin-top: 10px">
-							<input type="checkbox" id="chkSemi" />
-      						<label for="chkSemi">Add Semicolons to The Lines</label>
-						</div>
-					</div>
 					</div>
 				    <div id="controlGroup1">
     					<div class="input-field col s5">
