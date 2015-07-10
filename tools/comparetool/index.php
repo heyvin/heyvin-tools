@@ -117,6 +117,7 @@
 						if(strError.indexOf("arguments") != -1) {
 							strError = strError.substring(strError.indexOf("arguments") + 11, strError.length - 1);
 						}
+						strError = strError.replace(/\ /g, "");
 						strError = strError.replace(/\n/g, "");
 						var arrError = strError.split(',');
 						strSQL = strSQL.replace(/\n/g, "");
