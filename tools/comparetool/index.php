@@ -117,7 +117,7 @@
 						if(strError.indexOf("arguments") != -1) {
 							strError = strError.substring(strError.indexOf("arguments") + 11, strError.length - 1);
 						}
-						strError = strError.replace(/\ /g, "");
+						strError = strError.replace(/\n/g, "");
 						var arrError = strError.split(',');
 						strSQL = strSQL.replace(/\n/g, "");
 						var arrSQL = strSQL.split(',');
@@ -133,7 +133,12 @@
 								arrSQL[i] = arrSQL[i].trim();
 								if(arrError[i] != arrSQL[i].substring(0, arrSQL[i].indexOf(' '))) {
 									if((arrError[i] == "float" && arrSQL[i].substring(0, arrSQL[i].indexOf(' ')) == "double")
-									|| (arrError[i] == "int" && arrSQL[i].substring(0, arrSQL[i].indexOf(' ')) == "double")) {
+									|| (arrError[i] == "int" && arrSQL[i].substring(0, arrSQL[i].indexOf(' ')) == "double")
+									|| (arrError[i] == "int" && arrSQL[i].substring(0, arrSQL[i].indexOf(' ')) == "Integer")
+									|| (arrError[i] == "float" && arrSQL[i].substring(0, arrSQL[i].indexOf(' ')) == "Float")
+									|| (arrError[i] == "short" && arrSQL[i].substring(0, arrSQL[i].indexOf(' ')) == "Short")
+									|| (arrError[i] == "long" && arrSQL[i].substring(0, arrSQL[i].indexOf(' ')) == "Long")
+									|| (arrError[i] == "double" && arrSQL[i].substring(0, arrSQL[i].indexOf(' ')) == "Double")) {
 									} else {
 										strConflict = strConflict + arrSQL[i] + "\n";
 									}
