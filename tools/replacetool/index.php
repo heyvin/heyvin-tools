@@ -51,6 +51,10 @@
 								<input type="checkbox" id="chkSemi" />
 	      						<label for="chkSemi">Add Semicolons to The Lines</label>
 							</div>
+							<div style="margin-top: 10px">
+								<input type="checkbox" id="chkSetObject" />
+	      						<label for="chkSetObject">Fix setObject</label>
+							</div>
 						</div>
 					</div>
 				    <div id="controlGroup1">
@@ -205,6 +209,8 @@
 					$("#chkVariables").prop("disabled", false);
 					$("#chkVariables").prop("checked", false);
 					$("#chkSemi").prop("checked", false);
+					$("#chkSetObject").prop("disabled", false);
+					$("#chkSetObject").prop("checked", false);
 				});
 				
 				$("#btnSave").click(function() {
@@ -506,7 +512,21 @@
 						}
 						cmPre.setValue(arrLines.join('\n'));
 					}
-				})
+				});
+				
+				$("#chkSetObject").change(function() {
+					if($("#chkSetObject").prop("checked")) {
+						var strPreText = cmPre.getValue();
+						var arrLines = strPreText.split('\n');
+						for(var i = 0; i < arrLines.length; i++) {
+							var arg = arrLines[i].substring(arrLines[i].indexOf(',') + 1, arrLines[i].lastIndexOf(')')).trim();
+							arrLines[i] = arrLines[i].substring(0, arrLines[i].lastIndexOf(')')) 
+								+ ' != null ? (' + arg + '.equals("") ? null : ' + arg + ') : ' + arg + ');';
+						}
+						cmPre.setValue(arrLines.join('\n'));
+						$("#chkSetObject").prop("disabled", true);
+					}
+				});
 
 			});
 			
@@ -588,6 +608,9 @@
 			    }
 			    if($("#chkSemi").prop("checked")) {
 			    	$("#chkSemi").trigger("change");
+			    }
+			    if($("#chkSetObject").prop("checked")) {
+			    	$("#chkSetObject").trigger("change");
 			    }
 			    
 			    return count;
