@@ -104,7 +104,7 @@
             
             $(document).ready(function() { 
                 $("#example1").html("fldNYKYT_DATE<br/>fldSIR_CD</br>fldSIR_RKNM</br/></br/>");
-            	$("#example2, #example3").html("<table>"+
+            	$("#example2, #example3").html("<table style='width:400px'>"+
                                         "<tr><td>入荷予定日</td><td>fldNYKYT_DATE</td></tr>"+
                                         "<tr><td>仕入先コード</td><td>fldSIR_CD</td></tr>"+
                                         "<tr><td>仕入先名</td><td>fldSIR_RKNM</td></tr>"+
