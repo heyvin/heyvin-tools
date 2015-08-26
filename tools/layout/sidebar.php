@@ -15,6 +15,9 @@
         	<li id='comparetool' class='bold'>
         		<a href='/tools/comparetool' class='waves-effect waves-teal'>Compare Tool</a>
         	</li>
+        	<li id='layouttool' class='bold'>
+        		<a href='/tools/layouttool' class='waves-effect waves-teal'>Quyen's Layout Tool</a>
+        	</li>
         </ul>
 
     ");
