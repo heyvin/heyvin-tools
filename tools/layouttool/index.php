@@ -103,6 +103,7 @@
             }
             
             $(document).ready(function() { 
+                setActive("#layouttool");
                 $("#example1").html("fldNYKYT_DATE<br/>fldSIR_CD</br>fldSIR_RKNM</br/></br/>");
             	$("#example2, #example3").html("<table style='width:400px'>"+
                                         "<tr><td>入荷予定日</td><td>fldNYKYT_DATE</td></tr>"+
