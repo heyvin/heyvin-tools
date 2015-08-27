@@ -18,6 +18,9 @@
         	<li id='layouttool' class='bold'>
         		<a href='/tools/layouttool' class='waves-effect waves-teal'>Quyen's Layout Tool</a>
         	</li>
+        	<li id='tftool' class='bold'>
+        		<a href='/tools/tftool' class='waves-effect waves-teal'>TextField Tool</a>
+        	</li>
         </ul>
 
     ");
