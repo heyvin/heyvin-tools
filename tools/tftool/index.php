@@ -165,7 +165,6 @@ SALE_CD
                         
                         input = input.substring(0, arrIndex1[i] + 21) 
                                 + "<![CDATA[$F{" + variables[i].trim() + "}]]></textFieldExpression>"
-                                + "\n" + "<anchorNameExpression><![CDATA[" + variables[i].trim() + "]]></anchorNameExpression>"
                                 + input.substring(arrIndex2[i] + 22, input.length);
                         
                     }
