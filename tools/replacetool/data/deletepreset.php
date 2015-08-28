@@ -3,8 +3,8 @@
 require($_SERVER['DOCUMENT_ROOT']. '/vendor/autoload.php');
 $s3 = Aws\S3\S3Client::factory(array(
                                     'credentials' => array(
-                                        'key'    => 'AKIAIRRHXXT474LBNQ2Q',
-                                        'secret' => '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',
+                                        'key'    => '',
+                                        'secret' => '',
                                         )
                             ));
 $bucket = 'heyvin-us';
